@@ -1,0 +1,281 @@
+.mobile-menu-wrapper{
+    width: 100%;
+    // min-height: 50px;
+    background: #fff;
+    position: fixed;
+    top: 0;
+    padding: 20px 0px 15px 0px;
+    z-index: 9;
+    height:auto;
+    transition: all 0.2s ease-in-out;
+    overflow-y: scroll;
+    border-bottom:thin solid black;
+
+    a{
+        text-decoration: none;
+    }
+
+    .menu-slogan{
+        font-family: 'Suisse Serif';
+        padding: 20px 20px 20px 0px;
+        font-size: 20px;
+    }
+
+    .menu-content{
+        height:0px;
+        min-height:0px;
+        opacity: 0;
+        overflow: hidden;
+    }
+
+    .menu-content-open{
+        height:auto;
+        min-height:1000px;
+        opacity: 1;
+    }
+
+    // .menu-expanded-section{
+
+    //     .content-wrapper{
+    //         width: 100%;
+    //         float: left;
+    //         position: relative;
+    //         overflow-y: scroll;
+
+            .menu-expanded-topics-section{
+                padding:0px 20px;
+                display:none;
+            }
+            .menu-expanded-open{
+                display:block;
+                float: left;
+                width: 100%;
+                // margin-top:20px;
+            }
+
+            .menu-section-newsletter-wrapper{
+
+                .menu-section-newsletter{
+
+                    .menu-section-title{
+                        cursor: pointer;
+                    }
+                    
+                    .newsletter-expanded{
+                        display: none;
+                        
+                        // height:0;
+                        // opacity: 0;
+                        // overflow: hidden;
+                        // transition:all 0.5s ease-in-out;
+                        // padding-bottom:0px;
+
+                        // .newsletter-subscribe-content{
+                        //     // height:auto;
+                        //     float:left;
+                        //     // padding-bottom:20px;
+                        //     // height:200px;
+                        //     width:100%;
+                        // }
+
+                        // .menu-section-email-form{
+                        //     border-bottom: thin solid black;
+                        //     line-height: 11vw;
+                        //     padding-top: 2px;
+                        //     height: 9vw;
+                        // }
+                        // .menu-section-email-arrow{
+                        //     position: absolute;
+                        //     top: 5px;
+                        //     right: 5px;
+                        // }
+
+                        // .menu-section-email-opt-wrapper{
+                        //     display: grid;
+                        //     grid-template-columns: 5vw auto;
+                        //     padding-top: 4px;
+                        //     font-size: 3.5vw;
+                        //     align-content: center;
+                        //     margin-top: 2.5vw;
+                        //     line-height: 4.5vw;
+                        //     margin-bottom: 2vw;
+                        //     height: 20px;
+                            
+
+                        //     .menu-section-email-opt-tick{
+                        //         border: thin solid black;
+                        //         background-color: white;
+                        //         border-radius: 50%;
+                        //         width: 3vw;
+                        //         height: 3vw;
+                        //         cursor: pointer;
+                        //         align-self: center;
+                        //     }
+                        //     .menu-section-email-opt-tick:hover{
+                        //         background-color: black;
+                        //     }
+                        //     .menu-section-email-opt-label{
+                        //         align-self: center;
+                        //         padding-top: 0.6vw;
+                        //         font-size: 3.5vw;
+                        //         line-height: 3.5vw;
+                        //     }
+                        // }
+                        // .menu-section-email-submit{
+                        //     padding-top:8px;
+                        //     font-family: "Suisse Medium";
+                        //     text-align: center;
+                        //     color: black;
+                        // }
+                    }
+
+                    .newsletter-expanded-display{
+                        display: block;
+                        padding-top:5px;
+                        padding-bottom:20px;
+                    }
+                }
+            }
+            .menu-section-follow{
+                position: relative;
+                font-size: 16px;
+                line-height: 17px;
+                margin-top: 20px;
+
+                .menu-section-social{
+                    position: absolute;
+                    bottom: 0px;
+                    // .menu-section-social-label{
+                    //     float: left;
+                    //     margin-right: 10px;
+                    // }
+                    // .menu-section-social-buttons{
+                    //     float: left;
+                    //     display: grid;
+                    //     grid-template-columns: 1fr 1fr 1fr;
+                    //     column-gap: 10px;
+                    // }
+                }
+
+                    .menu-section-social-label{
+                        float: left;
+                        margin-right: 10px;
+                    }
+                    .menu-section-social-buttons{
+                        float: left;
+                        display: grid;
+                        grid-template-columns: 1fr 1fr 1fr;
+                        column-gap: 10px;
+                        font-size: 16px;
+                    }
+                
+            }
+    //     }
+    // }
+
+    .menu-section-title{
+        font-size: 34px;
+        line-height: 36px;
+        font-family: 'Suisse Medium';
+    }
+    // .menu-section-item{
+    //     font-size: 6vw;
+    //     color: rgb(175, 175, 175);
+    //     font-family: 'Suisse Medium';
+    //     width: 100%;
+    //     height: 6vw;
+    //     // padding-top: 2px;
+    // }
+    // .section-expand{
+    //     max-height:0;
+    //     opacity: 0;
+    //     overflow: hidden;
+    //     padding-bottom: 0px;
+    //     padding-top: 0px;
+    //     transition:all 0.2s ease-in-out;
+    // }
+    // .section-show{
+    //     max-height:200px;
+    //     overflow: visible;
+    //     opacity: 1;
+    //     padding-bottom: 2.5vw;
+    //     padding-top: 1vw;
+    // }
+    .menu-section-logo{
+        float:left;
+        padding-left: 20px;
+        width: 100%;
+        // margin-bottom: 10px;
+
+        svg{
+            height:30px;
+        }
+    }
+
+    .menu-toggle{
+        position: absolute;
+        right: 20px;
+        top: 24px;
+
+        .open{
+            font-size: 23px;
+        }
+        .close{
+            font-size: 28px;
+        }
+    }
+
+    .menu-search-wrapper{
+        width: 100%;
+        float: left;
+        position: relative;
+        margin-bottom: 20px;
+        padding: 0px 0px 10px 0px;
+        
+
+        .menu-search-field{
+            color: rgb(175, 175, 175);
+            width: 100%;
+            border-bottom: thin solid black;
+            font-size: 20px;
+            line-height: 21px;
+            padding-top: 11px;
+            font-family: 'Suisse Serif';
+
+            input{
+                width: 100%;
+                border: none;
+                padding: 0px 0px 4px 0px;
+                // text-align: center;
+                font-family: 'Suisse Serif';
+                font-size: 20px;
+            }
+            input:focus{
+                outline: none;
+            }
+
+            .menu-search-button{
+                position: absolute;
+                right: 0px;
+                top: 10px;
+                color: black;
+                font-size: 26px;
+            }
+        }
+    }
+  }
+
+  .mobile-menu-wrapper::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+
+.menu-wrapper-open{
+    height:100%;
+}
+.menu-open{
+    height:100%;
+}
+
+  .st0{
+      fill:#000;
+  }

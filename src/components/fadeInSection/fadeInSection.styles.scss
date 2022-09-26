@@ -1,0 +1,12 @@
+.fade-in-section {
+    opacity: 0;
+    transform:translatey(20px);
+    transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
+    transition-delay: 0.2s;
+    will-change: opacity, transform,;
+  }
+  .fade-in-section.is-visible {
+    opacity: 1;
+    transform:translatey(0px);
+
+  }

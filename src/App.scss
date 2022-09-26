@@ -1,0 +1,246 @@
+@font-face {
+	font-family: 'Suisse Regular';
+	src: url('./fonts/suisse_bp_intl_regular-webfont.woff2') format('woff2'),
+		 url('./fonts/suisse_bp_intl_regular-webfont.woff') format('woff');
+	font-style: normal;
+  font-weight:400;
+  }  
+
+@font-face {
+  font-family: 'Suisse Regular Italic';
+  src: url('./fonts/suisse_bp_intl_regular_italic-webfont.woff2') format('woff2'),
+      url('./fonts/suisse_bp_intl_regular_italic-webfont.woff') format('woff');
+  font-style: normal;
+  font-weight:400;
+  }  
+
+  @font-face {
+    font-family: 'Suisse Medium';
+    src: url('./fonts/SuisseBPIntl-Medium.woff2') format('woff2'),
+        url('./fonts/SuisseBPIntl-Medium.woff') format('woff');
+    font-style: normal;
+    font-weight:500;
+    }  
+
+@font-face {
+  font-family: 'Suisse Medium Italic';
+  src: url('./fonts/SuisseBPIntl-MediumItalic.woff2') format('woff2'),
+      url('./fonts/SuisseBPIntl-MediumItalic.woff') format('woff');
+  font-style: italic;
+  font-weight:500;
+  }  
+
+  @font-face {
+    font-family: 'Suisse Bold';
+    src: url('./fonts/SuisseBPIntl-Bold.woff2') format('woff2'),
+        url('./fonts/SuisseBPIntl-Bold.woff') format('woff');
+    font-style: normal;
+    font-weight:600;
+    }  
+
+@font-face {
+  font-family: 'Suisse Bold Italic';
+  src: url('./fonts/SuisseBPIntl-BoldItalic.woff2') format('woff2'),
+      url('./fonts/SuisseBPIntl-BoldItalic.woff') format('woff');
+  font-style: italic;
+  font-weight:600;
+  }
+
+@font-face {
+  font-family: 'Suisse Serif';
+  src: url('./fonts/suisse_bp_serif_medium.woff2') format('woff2'),
+      url('./fonts/suisse_bp_serif_medium.woff') format('woff');
+  font-style: normal;
+  font-weight:400;
+  }  
+  
+@font-face {
+  font-family: 'Suisse Serif Italic';
+  src: url('./fonts/suisse_bp_serif_medium_italic-webfont.woff2') format('woff2'),
+      url('./fonts/suisse_bp_serif_medium_italic-webfont.woff') format('woff');
+  font-style: normal;
+  font-weight:400;
+  }  
+
+
+  em{
+    font-family: 'Suisse Regular Italic';
+    word-break: break-all;
+  }
+  .content-quote{
+    em{
+      font-family: 'Suisse Serif Italic';
+    }
+  }
+  strong{
+    font-family: 'Suisse Bold';
+  }
+  .unknown__pt__mark__sup{
+    font-size: 14px;
+    transform: translateY(-10px);
+    display: inline-block;
+  }
+  .a-no-style{
+    color:inherit;
+    text-decoration: none;
+  }
+  .pointer{
+    cursor: pointer;
+  }
+  .linklike{
+    font-family:'Suisse Bold';
+    text-transform:uppercase;
+    cursor:pointer;
+  }
+
+  .top-margin{
+    margin-top:60px;
+  }
+
+  .page-navigation-wrapper{
+    grid-auto-flow: column;
+    width: 100%;
+    display: grid;
+    padding: 20px 0px 7px 0px;
+    justify-content: center;
+    font-size: 36px;
+    line-height: 40px;
+    text-transform: uppercase;
+    font-family: 'Suisse Medium';
+
+    a{
+      text-decoration: none;
+      color:rgb(176, 176, 176);
+    }
+    a:hover{
+      // text-decoration: none;
+      color:black;
+    }
+    .active-tag{
+      color:black;
+    }
+
+    .page-navigation-title{
+      display:inline;
+      cursor: pointer;
+    }
+    .page-navigation-separator{
+      padding:0px 10px;
+      color:black;
+    }
+    .page-navigation-option{
+      display:inline;
+      cursor: pointer;
+      color:rgb(176, 176, 176);
+    }
+    .page-navigation-option:hover{
+      color:black;
+    }
+    .page-navigation-search-field-input{
+      font-size: 36px;
+      width: auto;
+      display: inline;
+      font-family: 'Suisse Medium';
+      text-transform: uppercase;
+      height: auto;
+      padding: 0;
+      border: none;
+    }
+    .page-navigation-search-field-input:focus{
+      outline: none;
+    }
+  }
+
+  .page-navigation-location-wrapper{
+    width:100%;
+    text-align: center;
+
+    .location-option{
+      color:gray;
+      cursor: pointer;
+    }
+    .location-option:hover{
+      color:black;
+    }
+    .active-tag{
+      color:black;
+    }
+
+    .location-list{
+      grid-auto-flow: column;
+      width: 100%;
+      display: grid;
+      justify-content: center;
+      font-family: 'Suisse Medium';
+
+      .page-navigation-separator{
+        padding:0px 5px;
+        color:black;
+      }
+
+    }
+
+    .location-search-wrapper{
+      width: 100%;
+      display: grid;
+      justify-content: center;
+
+      .location-search{
+        margin-top: 8px;
+        position: relative;
+        width:300px;
+        border-bottom: thin solid gray;
+
+        .location-search-arrow{
+          font-size: 20px;
+          position: absolute;
+          right:0;
+          cursor: pointer;
+        }
+        .location-search-arrow:hover{
+          color:gray;
+        }
+
+        input{
+          width:300px;
+          display: inline;
+          font-family: 'Suisse Medium';
+          text-transform: uppercase;
+          height: auto;
+          border:none;
+          
+          text-align:center;
+          font-size: 17px;
+        }
+        input:focus{
+          outline: none;
+        }
+      }
+    }
+  }
+  @media screen and (max-width:1100px){
+    .page-navigation-wrapper{
+      display: inline-block !important;
+      padding: 30px 0px 7px 20px !important;
+      font-size: 31px !important;
+      line-height: 34px !important;
+
+      .page-navigation-search-field-input{
+        font-size: 31px !important;
+        line-height: 34px !important;
+      }
+
+      .page-navigation-title{
+        padding-right:10px;
+      }
+
+      .page-navigation-option{
+        display: inline-block !important;
+        padding-right:10px;
+
+        .page-navigation-separator{
+          padding: 0px 10px 0px 0px;
+        }
+      }
+    }
+  }

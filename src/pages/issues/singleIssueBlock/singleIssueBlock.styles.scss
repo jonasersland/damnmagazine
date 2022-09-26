@@ -1,0 +1,129 @@
+.single-issue-block{
+    width:100%;
+    float:left;
+    margin-bottom: 30px;
+    margin-top:60px;
+
+    .issue-more{
+        margin-bottom: 21px;
+        font-family: 'Suisse Bold';
+        cursor:pointer;
+    }
+    .issue-buy{
+        a{
+            font-family: 'Suisse Bold';
+            text-decoration: none;
+        }
+    }
+
+    .issue-title{
+        font-family: 'Suisse Medium';
+        font-size: 33px;
+        width:50vw;
+        margin:0px 0 0 25vw;
+        line-height: 40px;
+        // padding-top: 15px;
+    }
+
+    .issue-image{
+        width:50vw;
+        margin-left:25vw;
+        height: auto;
+        float: left;
+        padding:20px 0px;
+        margin-top:15px;
+        
+        img{
+            max-width: 100%;
+        }
+    }
+
+    .issue-images{
+        width:100%;
+        height: auto;
+        float: left;
+        padding:20px 0px;
+        margin-top:15px;
+
+        .swiper-ref-prev{
+            z-index: 999;
+            position: absolute;
+            height: 100%;
+            top: 0;
+            width: 20vw;
+            min-width:200px;
+            left: 0;
+            cursor: none;
+        }
+
+        .swiper-ref-next{
+            position: absolute;
+            z-index: 999;
+            height: 100%;
+            top: 0;
+            width: 20vw;
+            min-width:200px;
+            right: 0;
+            cursor: none;
+        }
+
+        .swiper-slide{
+            padding: 0px 10px;
+        }
+        
+        .issue-image-slider-wrapper{
+            // padding:0px 10px;
+            width: auto;
+            height: auto;
+            float: left;
+
+            img{
+                max-width: 100%;
+                max-height: 100%;
+            }
+        }
+    }
+
+    .issue-text{
+        width: 100%;
+        float: left;
+        display: grid;
+        justify-items: center;
+
+        p{
+            font-family:'Suisse Serif';
+            margin:10px 0px;
+            width: 50vw;
+            justify-self: center;
+            float:left;
+        }
+
+        .issue-extra{
+  
+            margin-top:20px;
+            text-align: center;
+            font-family: 'Suisse Medium';
+        }
+    }
+}
+
+@media screen and (max-width:1100px){
+
+    .swiper-ref-prev, .swiper-ref-next{
+        display: none;
+    }
+
+    .issue-title{
+        width: 100vw !important;
+        margin: 0px !important;
+        padding-left: 20px;
+    }
+
+    .issue-text{
+        p{
+            width: 100% !important;
+            padding:0px 20px;
+        }
+    }
+
+}

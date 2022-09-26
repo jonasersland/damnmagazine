@@ -1,0 +1,39 @@
+{
+  "root": true,
+  "project": {
+    "name": "damnmagazine"
+  },
+  "api": {
+    "projectId": "saw1tbns",
+    "dataset": "production"
+  },
+  "plugins": [
+    "@sanity/base",
+    "@sanity/default-layout",
+    "@sanity/default-login",
+    "@sanity/desk-tool",
+    "tags",
+    "content-calendar",
+    "mux-input",
+    "@sanity/color-input",
+    "google-analytics",
+    "@sanity/dashboard"
+  ],
+  "env": {
+    "development": {
+      "plugins": [
+        "@sanity/vision"
+      ]
+    }
+  },
+  "parts": [
+    {
+      "name": "part:@sanity/base/schema",
+      "path": "./schemas/schema"
+    },
+    {
+      "name": "part:@sanity/desk-tool/structure",
+      "path": "./deskStructure.js"
+    }
+  ]
+}

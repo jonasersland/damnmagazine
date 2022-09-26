@@ -1,0 +1,64 @@
+.advertise-content-wrapper{
+    margin-top: 60px;
+    width:50vw;
+    margin-left:25vw;
+    position: relative;
+    float: left;
+    padding-bottom: 100px;
+    
+    .advertise-title{
+        font-family: "Suisse Medium";
+        font-size: 37px;
+        margin-bottom:20px;
+        line-height: 40px;
+    }
+
+    .advertise-image{
+        width: 100%;
+        float: left;
+        margin:20px 0px;
+        
+        img{
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .advertise-text{
+        width: 100%;
+        float: left;
+        font-family: 'Suisse Serif';
+
+        .advertise-bottom-text{
+            font-family: 'Suisse Medium';
+
+            .bottom-text-title{
+                width:480px;
+                max-width: 100%;
+                margin: 30px 0px;
+            }
+
+            .bottom-text-contact{
+                width: 50%;
+                float:left;
+                
+                p{
+                    margin:0;
+                }
+            }
+        }
+
+        p{
+            margin:15px 0px;
+        }
+    }
+}
+
+@media screen and (max-width:1100px){
+
+    .advertise-content-wrapper{
+        padding:0px 20px;
+        width:100% !important;
+        margin-left:0px !important;
+    }
+}

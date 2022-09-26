@@ -1,0 +1,103 @@
+.single-issue-block{
+    width:100%;
+    float:left;
+    margin-bottom: 30px;
+
+    .issue-title{
+        font-family: 'Suisse Medium';
+        font-size: 40px;
+        width:50vw;
+        margin:30px 0 0 25vw;
+        border-top: thin solid #eeeeee;
+        line-height: 40px;
+        padding-top: 15px;
+    }
+
+    .issue-images{
+        width:100%;
+        height: auto;
+        float: left;
+        padding:20px 0px;
+        margin-top:15px;
+
+        .swiper-ref-prev{
+            z-index: 999;
+            position: absolute;
+            height: 100%;
+            top: 0;
+            width: 10vw;
+            min-width:200px;
+            left: 0;
+            cursor: none;
+        }
+
+        .swiper-ref-next{
+            position: absolute;
+            z-index: 999;
+            height: 100%;
+            top: 0;
+            width: 10vw;
+            min-width:200px;
+            right: 0;
+            cursor: none;
+        }
+
+        .swiper-slide{
+            padding: 0px 10px;
+        }
+        
+        .issue-image-slider-wrapper{
+            // padding:0px 10px;
+            width: auto;
+            height: auto;
+            float: left;
+
+            img{
+                max-width: 100%;
+                max-height: 100%;
+            }
+        }
+    }
+
+    .issue-text{
+        width: 100%;
+        float: left;
+        display: grid;
+        justify-items: center;
+
+        p{
+            font-family:'Suisse Serif';
+            margin:10px 0px;
+            width: 50vw;
+            justify-self: center;
+            float:left;
+        }
+
+        .issue-extra{
+  
+            margin-top:20px;
+            text-align: center;
+            font-family: 'Suisse Medium';
+
+            a{
+                color:#0a4199;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:1100px){
+
+    .issue-title{
+        width: 100vw !important;
+        margin: 30px 0px !important;
+    }
+
+    .issue-text{
+        p{
+            width: 100% !important;
+            padding:0px 20px;
+        }
+    }
+
+}

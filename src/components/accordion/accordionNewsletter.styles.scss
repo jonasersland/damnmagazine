@@ -1,0 +1,27 @@
+.accordion {
+    // width: 0%;
+    // display: grid;
+    // grid-template-columns: 1fr 1fr 1fr 1fr 1fr 2fr;
+    // padding-top: 8px;
+    // float: left;
+    // position: relative;
+
+    .content-wrapper{
+      float:left;
+      overflow-x: hidden;
+      overflow-y: hidden;
+      height:auto;
+      margin-top:0px;
+      width:100%;
+      opacity:0;
+      transition: height ease 0.2s, opacity 0.7s ease;
+    }
+    .content-wrapper.open{
+      overflow: visible;
+      opacity: 1;
+    }
+  
+  }
+.accordion.open {
+  height: auto;
+}

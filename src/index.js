@@ -1,13 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './index.scss';
 import App from './App';
+import { BrowserRouter } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
+import GlobalContextProvider from "./context/global-context";
+import { CookiesProvider } from 'react-cookie';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <CookiesProvider>
+    <BrowserRouter>
+      <GlobalContextProvider>
+          <App />
+      </GlobalContextProvider>
+    </BrowserRouter>
+  </CookiesProvider>
+  ,
   document.getElementById('root')
 );
 

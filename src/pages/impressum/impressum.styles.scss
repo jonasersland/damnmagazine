@@ -1,0 +1,20 @@
+.impressum-content-wrapper{
+    display: grid;
+    p{
+        margin:10px 0px;
+        width: 50vw;
+        justify-self: center;
+        float:left;
+    }
+}
+
+
+@media screen and (max-width:1100px){
+    .impressum-content-wrapper{
+        p{
+            padding: 0px 20px;
+            width: 100vw !important;
+            justify-self: start !important;
+        }
+    }
+}

@@ -1,0 +1,134 @@
+.cookies-preference-wrapper{
+    position: fixed;
+    bottom:0;
+    width:100%;
+    background-color:white;
+    border-top:thin solid black;
+    z-index: 99;
+    padding: 20px 0px 10px 0px;
+
+    .linklike{
+        margin:10px 0px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .cookies-preference-init{
+        width:50vw;
+        margin-left:25vw;
+
+        .cookies-buttons-wrapper{
+            float:left;
+            margin-top:20px;
+            width:100%;
+            text-align: center;
+        }
+    }
+
+    .cookies-preference-expanded{
+        float:left;
+        width:50vw;
+        margin-left:25vw;
+
+        .cookies-checkbox-wrapper{
+            float: left;
+            margin: 20px 0px;
+        
+
+            .cookies-checkbox{
+                float: left;
+                display: grid;
+                grid-template-columns: auto auto;
+                align-items: center;
+
+                .cookies-checkbox-tick-wrapper{
+                    width: 35px;
+                    height: 35px;
+                    position: relative;
+                    float:left;
+
+                    [type=checkbox] {
+                        width: 24px;
+                        height: 24px;
+                        vertical-align: middle;
+                        -webkit-appearance: none;
+                        background: none;
+                        border: thin solid black;
+                        outline: 0;
+                        flex-grow: 0;
+                        border-radius: 50%;
+                        background-color: #FFFFFF;
+                        transition: background 300ms;
+                        cursor: pointer;
+                        margin: 0;
+                    }
+
+                    [type=checkbox]:hover {
+                        
+                        border: thin solid gray;
+                    }
+                    
+                    
+                    /* Pseudo element for check styling */
+                    
+                    [type=checkbox]::before {
+                        content: "";
+                        color: transparent;
+                        display: block;
+                        width: inherit;
+                        height: inherit;
+                        border-radius: inherit;
+                        border: 0;
+                        background-color: transparent;
+                        background-size: contain;
+                        // box-shadow: inset 0 0 0 1px #CCD3D8;
+                    }
+                    
+                    
+                    /* Checked */
+                    
+                    [type=checkbox]:checked {
+                        background-color: currentColor
+                    }
+                    
+                    [type=checkbox]:checked::before {
+                        box-shadow: none;
+                    }
+
+                    
+                    /* Show the checkmark when checked */
+                }
+                .cookies-checkbox-tick-wrapper input:checked ~ .menu-section-email-opt-tick:after {
+                    display: block;
+                }
+
+                .cookies-checkbox-label{
+                    float: left;
+                    font-family: "Suisse Bold";
+                    font-size: 28px;
+                    height: 28px;
+                    align-self: center;
+                }
+            }
+
+            .cookies-description{
+                float: left;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:1100px){
+
+    .cookies-preference-wrapper{
+        padding: 20px;
+        .cookies-preference-init{
+            width: 100% !important;
+            margin-left: 0 !important;
+        }
+        .cookies-preference-expanded{
+            width: 100% !important;
+            margin-left: 0 !important;
+        }
+    }
+}

@@ -1,0 +1,36 @@
+.accordion {
+    // width: 0%;
+    // display: grid;
+    // grid-template-columns: 1fr 1fr 1fr 1fr 1fr 2fr;
+    // padding-top: 8px;
+    // float: left;
+    // position: relative;
+
+    .content-wrapper{
+      position:absolute;
+      float:left;
+      // overflow-x: hidden;
+      // overflow-y: hidden;
+      height:0px;
+      margin-top:0px;
+      margin-bottom: 7px;
+      padding-top: 11px;
+      width:100%;
+      opacity:0;
+      transform: translatey(0px);
+      transition: height ease 0.2s, opacity 0.7s ease, transform ease 0.2s;
+      pointer-events: none;
+      background-color: white;
+    }
+    .content-wrapper.content-wrapper-open{
+      // overflow: visible;
+      pointer-events:all;
+      opacity: 1;
+      height:40px;
+      transform: translatey(30px);
+    }
+  
+  } 
+.accordion.open {
+  height: auto;
+}

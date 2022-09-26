@@ -1,0 +1,109 @@
+.fullscreen-swiper-wrapper{
+    // background: blue;
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+
+    .fullscreen-arrow-prev{
+        color: white;
+        position: fixed;
+        z-index: 9;
+        width: 10vw;
+        height: 100%;
+        display: grid;
+        align-items: center;
+        padding-left: 20px;
+        font-size: 20px;
+        span{
+            cursor:pointer;
+        }
+
+    }
+
+    .fullscreen-arrow-next{
+        right:0;
+        color: white;
+        position: fixed;
+        z-index: 9;
+        width: 10vw;
+        height: 100%;
+        display: grid;
+        align-items: center;
+        justify-items:end;
+        padding-right: 20px;
+        font-size: 20px;
+
+        span{
+            cursor:pointer;
+            transform: rotate(180deg);
+        }
+    }
+
+    .swiper-button-next{
+        color: white;
+    }
+    .swiper-button-prev{
+        color: white;
+    }
+
+    .fullscreen-close{
+        position: fixed;
+        top: 0px;
+        right: 0px;
+        color: white;
+        z-index: 99;
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+        padding: 16px 0px 0px 16px;
+
+        path{
+            stroke:white
+        }
+    }
+
+    .fullscreen-image-slider-outer-wrapper{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+
+        .fullscreen-image-slider-wrapper{
+            flex-grow: 1;
+            max-width: 100%;
+            max-height: 100%;
+            overflow: hidden;
+            padding:20px;
+
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                max-width: 100%;
+                max-height: 100%;
+            }
+        }
+        .fullscreen-image-slider-caption{
+            width: 50vw;
+            margin-left: 25vw;
+            text-align: center;
+            padding: 0px 0px 20px 0px;
+            color: white;
+        }
+    }
+    .fullscreen-background{
+        top:0;
+        width:100%;
+        height:100%;
+        position: absolute;
+        z-index: 0;
+        background-color: rgba(0,0,0,0.8)
+    }
+}
+
+@media screen and (max-width:1100px){
+    .fullscreen-arrow-next, .fullscreen-arrow-prev{
+        display:none !important;
+    }
+}

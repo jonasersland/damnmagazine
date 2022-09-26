@@ -1,0 +1,29 @@
+.inputField__field{
+  border: none;
+  width: 100%;
+  border-bottom: thin solid;
+  line-height: 20px;
+  padding-top: 2px;
+  border-radius:0px;
+}
+
+.primaryBtn{
+  background: none;
+  border: none;
+  padding: 7px 0px 0px 0px;
+  color: black;
+  text-transform: uppercase;
+  font-family: 'Suisse Bold';
+  cursor:pointer;
+  float:left;
+}
+
+@media screen and (max-width:1100px){
+  .inputField__field{
+    font-size: 16px;
+    padding-left: 0px;
+  }
+  .primaryBtn{
+    font-size: 16px;
+  }
+}
