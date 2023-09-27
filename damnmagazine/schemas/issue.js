@@ -17,6 +17,12 @@ export default {
         type: 'number',
     },
     {
+      name:'showMore',
+      title: 'Allow "More from same issue"-button',
+      description:'On the page for a single issue you can determine whether or not to include the button that allows the user to browse more content from the same issue. By default the button will not show up unless you check this field.',
+      type:'boolean'
+    },
+    {
       name: 'url',
       title: 'Purchase url',
       type: 'url',

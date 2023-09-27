@@ -22,8 +22,8 @@
         }
         .video-play-button{
             z-index: 9;
-            width: 140px;
-            height: 140px;
+            width: 130px;
+            height: 130px;
             text-align: center;
             border: thin solid white;
             border-radius: 50%;
@@ -569,9 +569,17 @@
 
 @media screen and (max-width:1100px){
 
-    .video-play-button{
-        width:140px !important;
-    }
+        .video-play-button{
+            pointer-events: none !important;
+            height:130px !important;
+            width:130px !important;
+        }
+
+        .swiper-slide{
+            .video-play-button{
+                height:140px !important;
+            }
+        }
 
     .article-single-image {
         margin-left: 20px !important;
@@ -584,20 +592,35 @@
 
     .article-text-column{
         padding:0px 20px;
-        div{
-            width:100% !important;
 
-            p{
-                width:100% !important  
-            }
+        .article-text-column-author-bio,
+        .ad-image-wrapper, 
+        .article-text-column-article-type, 
+        .article-text-column-title,
+        .article-meta-column
+        {
+            width:100% !important;
+        }
+        p{
+            width:100% !important  
+        }
+        // .video-play-button{
+        //     height:130px !important;
+        //     width:130px !important;
+        // }
+
+        .content-row-one{
+            width: 100% !important;
+        }
+        .content-quote-wrapper{
+            width:100% !important;
         }
 
         .content-row{
             display: block !important;
             padding: 20px 0px !important;
-            .video-play-button{
-                width:140px !important;
-            }
+            width: 100% !important;
+
 
             .content-row-image-wrapper{
                 margin-bottom: 40px;

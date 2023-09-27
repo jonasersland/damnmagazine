@@ -47,7 +47,7 @@ const SingleIssueBlock =({isNarrow, content})=>{
         }
         return getDimension(size)
     }
-    // console.log(content)
+    console.log(content)
     if(!content) return <></>
     return(
         <div className="single-issue-block">
@@ -120,9 +120,10 @@ const SingleIssueBlock =({isNarrow, content})=>{
                     value={content.text}
                 />
                 <div className="issue-extra">
-                    <div className="issue-more theme-color" onClick={()=>navigate('/issue-search/'+content.number)}>MORE FROM DAMNº{content.number}<br/></div>
-                    <div className="issue-buy"><a target='_blank' href={content.url ? content.url : 'https://www.bruil.info/product/damn/'}>BUY ISSUE</a><br/>€15 (Europe) / €21 (Rest of the world)</div>
-            </div>
+                    {content.showMore == true ? <div className="issue-more theme-color" onClick={()=>navigate('/issue-search/'+content.number)}>MORE FROM DAMNº{content.number}<br/></div> : ''}
+                    {/* <div className="issue-buy"><a target='_blank' href={content.url ? content.url : 'https://www.bruil.info/product/damn/'}>BUY ISSUE</a><br/>€15 (Europe) / €21 (Rest of the world)</div> */}
+                    <div className="issue-buy"><a target='_blank' href='https://www.idecommedia.be/Abo_Pagina/Abonneer?Owner=DAMN&Brand=DAMN&ID=C7F239D5-E5EE-4567-8448-44B33B27A461'>BUY / SUBSCRIBE</a></div>
+                </div>
             </div>
            
     </div>

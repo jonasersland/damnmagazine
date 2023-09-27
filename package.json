@@ -6,7 +6,7 @@
     "@mux/mux-player-react": "^0.1.0-beta.23",
     "@mux/videojs-kit": "^0.11.1",
     "@portabletext/react": "^1.0.6",
-    "@sanity/asset-utils": "^1.2.3",
+    "@sanity/asset-utils": "^1.3.0",
     "@sanity/client": "^3.3.0",
     "@sanity/image-url": "^1.0.1",
     "@testing-library/jest-dom": "^5.16.2",

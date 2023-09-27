@@ -13,7 +13,7 @@
         text-decoration: none;
     }
     a:hover{
-        color:#0A4199;
+        // color:#0A4199;
         cursor: pointer;
     } 
 
@@ -51,7 +51,7 @@
     }
 
     .menu-section-right{
-        width: 235px;
+        width: 225px;
         padding-top: 6px;
         position: absolute;
         right: 0;
@@ -62,8 +62,10 @@
         }
 
         .menu-section-right-buttons{
-            float: left;
-            padding-left: 24px;
+            // float: left;
+            // padding-left: 24px;
+            float:right;
+            width:92px;
         }
 
         .menu-section-right-buy{
@@ -191,7 +193,7 @@
 
             .menu-section-newsletter-wrapper{
                 float: right;
-                width: 235px;
+                width: 225px;
                 position: absolute;
                 right: 0px;
                 top: 14px;

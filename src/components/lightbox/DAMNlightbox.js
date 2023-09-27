@@ -92,7 +92,7 @@ const DAMNlightbox = ({images, currentImage, setCurrentImage}) => {
                <SwiperSlide key={'FSslide' + index}>
                    <div className="fullscreen-image-slider-outer-wrapper" onClick={()=>setCurrentImage(null)}>
                     <div className="fullscreen-image-slider-wrapper">
-                            <img src={urlFor(image.asset).height(window.innerHeight).url()}/>
+                            <img src={urlFor(image.asset).width(window.innerWidth).url()}/>
                         </div>
                     <div className="fullscreen-image-slider-caption" >
                         

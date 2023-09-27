@@ -1,95 +1,124 @@
-import React, {useEffect, useState, useRef, useContext} from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 import sanityClient from "../../client.js";
-import './cookies-popup.styles.scss'
+import "./cookies-popup.styles.scss";
 
-// import { GlobalContext } from "../../context/global-context"
-import {PortableText} from '@portabletext/react'
+import { PortableText } from "@portabletext/react";
 
-const CookiesPopup = ({localStorageSettings, setLocalStorageSettings}) =>{
-// console.log('cookies')
-    const [expandedPreferences, toggleExpandedPreferences] = useState(false);
-    // const {setCookiePreferencesHandler } = useContext(GlobalContext);
-    const [content, setContent] = useState(null);
+const CookiesPopup = ({ localStorageSettings, setLocalStorageSettings }) => {
+  const [expandedPreferences, toggleExpandedPreferences] = useState(false);
 
-    const [statistic, setStatistic] = useState(false)
-    const [marketing, setMarketing] = useState(false)
+  const [content, setContent] = useState(null);
 
-    useEffect(() =>{ 
-        let fetchContentQuery = `{'cookies':*[_type == 'cookies']{...}[0]}`
-        sanityClient
-        .fetch(fetchContentQuery)
-        .then(data => {setContent(data)})
-        .catch(console.error)
-    },[]);
+  const [statistic, setStatistic] = useState(false);
+  const [marketing, setMarketing] = useState(false);
 
-    const setCookiePreferences = (settings)=>{
-console.log(settings.statisticSettings)
-        localStorage.setItem("cookiesPreferenceSet", true)
-        localStorage.setItem("statistic", settings.statisticSettings)
-        localStorage.setItem("marketing", settings.marketingSettings)
+  useEffect(() => {
+    let isMounted = true;
 
-        setLocalStorageSettings({...localStorageSettings, 'statistic':settings.statisticSettings, 'marketing':settings.marketingSettings, 'cookiesPreferenceSet':true})
-    }
-    
-// console.log(content)
-if(!content) return <></>
-    return(
-        <div className="cookies-preference-wrapper">
-            <div className="cookies-preference-init">
-                <PortableText
-                    value={content.cookies.initialText}
-                />
-                <div className="cookies-buttons-wrapper">
-                    <div className="linklike theme-color" onClick={()=>setCookiePreferences({'statisticSettings': true, 'marketingSettings':true})}>YES, I ACCEPT</div>
-                    <div className="linklike theme-color" onClick={()=>toggleExpandedPreferences(!expandedPreferences)}>MANAGE MY COOKIES</div>
-                </div>
-            </div>
-            {expandedPreferences ? 
-                <div className="cookies-preference-expanded">
+    let fetchContentQuery = `{'cookies':*[_type == 'cookies']{...}[0]}`;
+    sanityClient
+      .fetch(fetchContentQuery)
+      .then((data) => {
+        if (isMounted) {
+          setContent(data);
+        }
+      })
+      .catch(console.error);
 
-                    <div className="cookies-checkbox-wrapper">
-                        <div className="cookies-checkbox">
-                            <div className="cookies-checkbox-tick-wrapper">
-                                <input type="checkbox" onChange={(e)=>setStatistic(e.target.checked)} className="theme-color-bg" />
-                            </div>
-                            <div className="cookies-checkbox-label">
-                                STATISTIC COOKIES
-                            </div>
-                        </div>
-                        <div className="cookies-description">
-                            <PortableText
-                                value={content.cookies.statisticText}
-                            />
-                        </div>
-                    </div>
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
-                    <div className="cookies-checkbox-wrapper">
-                        <div className="cookies-checkbox">
-                            <div className="cookies-checkbox-tick-wrapper">
-                                <input type="checkbox" onChange={(e)=>setMarketing(e.target.checked)} className="theme-color-bg" />
-                            </div>
-                            <div className="cookies-checkbox-label">
-                                MARKETING COOKIES
-                            </div>
-                        </div>
-                        <div className="cookies-description">
-                            <PortableText
-                                value={content.cookies.marketingText}
-                            />
-                        </div>
-                    </div>
+  const setCookiePreferences = (settings) => {
+    localStorage.setItem("cookiesPreferenceSet", true);
+    localStorage.setItem("statistic", settings.statisticSettings);
+    localStorage.setItem("marketing", settings.marketingSettings);
 
-                    <div className="linklike theme-color" onClick={()=>setCookiePreferences({'statisticSettings': statistic, 'marketingSettings':marketing})}>
-                        ALLOW SELECTIONS
-                    </div>
+    setLocalStorageSettings({
+      ...localStorageSettings,
+      statistic: settings.statisticSettings,
+      marketing: settings.marketingSettings,
+      cookiesPreferenceSet: true,
+    });
+  };
 
-                </div>
-                :''
+  if (!content) return <></>;
+  return (
+    <div className="cookies-preference-wrapper">
+      <div className="cookies-preference-init">
+        <PortableText value={content.cookies.initialText} />
+        <div className="cookies-buttons-wrapper">
+          <div
+            className="linklike theme-color"
+            onClick={() =>
+              setCookiePreferences({
+                statisticSettings: true,
+                marketingSettings: true,
+              })
             }
-
+          >
+            YES, I ACCEPT
+          </div>
+          <div
+            className="linklike theme-color"
+            onClick={() => toggleExpandedPreferences(!expandedPreferences)}
+          >
+            MANAGE MY COOKIES
+          </div>
         </div>
-    )
+      </div>
+      {expandedPreferences ? (
+        <div className="cookies-preference-expanded">
+          <div className="cookies-checkbox-wrapper">
+            <div className="cookies-checkbox">
+              <div className="cookies-checkbox-tick-wrapper">
+                <input
+                  type="checkbox"
+                  onChange={(e) => setStatistic(e.target.checked)}
+                  className="theme-color-bg"
+                />
+              </div>
+              <div className="cookies-checkbox-label">STATISTIC COOKIES</div>
+            </div>
+            <div className="cookies-description">
+              <PortableText value={content.cookies.statisticText} />
+            </div>
+          </div>
 
-}
+          <div className="cookies-checkbox-wrapper">
+            <div className="cookies-checkbox">
+              <div className="cookies-checkbox-tick-wrapper">
+                <input
+                  type="checkbox"
+                  onChange={(e) => setMarketing(e.target.checked)}
+                  className="theme-color-bg"
+                />
+              </div>
+              <div className="cookies-checkbox-label">MARKETING COOKIES</div>
+            </div>
+            <div className="cookies-description">
+              <PortableText value={content.cookies.marketingText} />
+            </div>
+          </div>
 
-export default CookiesPopup
+          <div
+            className="linklike theme-color"
+            onClick={() =>
+              setCookiePreferences({
+                statisticSettings: statistic,
+                marketingSettings: marketing,
+              })
+            }
+          >
+            ALLOW SELECTIONS
+          </div>
+        </div>
+      ) : (
+        ""
+      )}
+    </div>
+  );
+};
+
+export default CookiesPopup;

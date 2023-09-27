@@ -1,0 +1,50 @@
+.newsletter-content-wrapper{
+    display: grid;
+
+    .newsletter-content{
+        margin:10px 0px;
+        width: 50vw;
+        justify-self: center;
+        float:left;
+
+        .newsletter-content-image{
+            margin-bottom:20px;
+            img{
+                max-width: 100%;
+            }
+        }
+
+        .newsletter-text-wrapper{
+            width:100%;
+            p{
+                float:left;
+                font-family: 'Suisse Serif';
+            }
+        }
+
+        .newsletter-signup-wrapper{
+            width:100%;
+            padding-top:20px;
+            display: grid;
+
+            .newsletter-signup-form{
+                width:80%;
+                justify-self:center;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width:1100px){
+    .newsletter-content-wrapper{
+        .newsletter-content{
+            padding: 0px 20px !important;
+            width: 100vw !important;
+
+        .newsletter-signup-form{
+            width:100% !important;
+        }
+    }
+}
+}

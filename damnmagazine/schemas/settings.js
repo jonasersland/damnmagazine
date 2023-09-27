@@ -60,6 +60,29 @@ export default {
           description:'For special cases where the client requires implementing a tracking code to measure the performance of an ad.',
         },
       ]
+    },
+    {
+      name:'newsletterSignup',
+      title:'Newsletter signup page',
+      type:'object',
+      fields:[
+        {
+          type:'string',
+          title:'Title',
+          name:'title'
+        },
+        {
+        type:'image',
+        title:'Image',
+        name:'image',
+        description:'The image that will show up above the text.'
+        },
+        {
+          name:'text',
+          title: 'Text',
+          type:'blockContent'
+        },
+      ]
     }
     
   ],

@@ -32,8 +32,12 @@
             height: auto;
             padding: 10px;
 
+   
+
             .collection-page-article{
                 height: 100%;
+                // min-height: calc(((20vw) / 0.75) + 120px) !important;
+                // calc((25vw / 0.75) + 120px) !important
                 width: 20%;
                 float: left;
                 padding:10px;
@@ -126,6 +130,9 @@
 }
 
 .fiveCol{
+    .collection-page-article{
+        min-height: calc(((20vw)) + 220px) !important;
+    }
     .height-ratio-100{
         height: calc((20vw - 30px) / 0.75) !important;
     }
@@ -149,6 +156,9 @@
     }
 }
 .fourCol{
+    .collection-page-article{
+        min-height: calc(((25vw)) + 230px) !important;
+    }
     .height-ratio-100{
         height: calc((25vw - 30px) / 0.75) !important;
     }
@@ -172,7 +182,9 @@
     }
 }
 .threeCol{
-
+    .collection-page-article{
+        min-height: calc(((33vw)) + 260px) !important;
+    }
     .height-ratio-100{
         height: calc((33vw - 30px) / 0.75) !important;
     }
@@ -237,11 +249,6 @@
         padding: 0px 10px 0px 10px !important;
     }
 
-    .collection-page-article-byline{
-        font-size: 28px !important;
-        line-height: 30px !important;
-        padding-top: 0px !important;
-    }
     .collection-page-article-title{
         font-size: 28px !important;
         line-height: 30px !important;
@@ -249,3 +256,11 @@
     }
 }
 
+@media screen and (max-width:540px){
+
+    .collection-page-article-byline{
+        font-size: 28px !important;
+        line-height: 30px !important;
+        padding-top: 0px !important;
+    }
+}

@@ -67,6 +67,10 @@
     font-family: 'Suisse Regular Italic';
     word-break: break-all;
   }
+  p em{
+    // font-family: 'Suisse Regular Italic';
+    word-break: normal !important;
+  }
   .content-quote{
     em{
       font-family: 'Suisse Serif Italic';
