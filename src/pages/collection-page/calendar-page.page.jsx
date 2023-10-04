@@ -9,7 +9,7 @@ import Footer from "../../components/footer/footer.component";
 import Menu from "../../components/menu/menu.component";
 import MenuMobile from "../../components/menu/menuMobile.component";
 import FadeInSection from "../../components/fadeInSection/fadeInSection.component.jsx";
-import { returnFormattedTitle } from "../../utils/utils.js";
+import { returnFormattedTitle, titleCase } from "../../utils/utils.js";
 
 import { BiPlay } from "react-icons/bi";
 import { GlobalContext } from "../../context/global-context";
@@ -88,8 +88,7 @@ const CalendarPage = () => {
       );
       setActiveTag("");
     }
-    let optionCap =
-      option.charAt(0).toUpperCase() + option.slice(1).toLowerCase();
+    let optionCap = titleCase(option);
     setQuery(
       `{'articles': *[_type == "event" && "${optionCap}" in place[].label]{_id,originallyPublished,_createdAt, _type, slug, title,thumbnail,doubleWidth,'highlightItem':highlightItem[]{'asset':asset->}[0],"video": [video.asset->{...}],'eventData':[{startingTime, endingTime, place}], 'author':*[_id == ^.author._ref]{title}} | order(_createdAt desc) | order(originallyPublished desc)}`
     );

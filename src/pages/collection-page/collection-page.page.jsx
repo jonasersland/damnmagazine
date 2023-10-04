@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import sanityClient from "../../client.js";
 import "./collection-page.styles.scss";
 import imageUrlBuilder from "@sanity/image-url";
@@ -9,7 +9,7 @@ import Footer from "../../components/footer/footer.component";
 import Menu from "../../components/menu/menu.component";
 import MenuMobile from "../../components/menu/menuMobile.component";
 import FadeInSection from "../../components/fadeInSection/fadeInSection.component.jsx";
-import { returnFormattedTitle } from "../../utils/utils.js";
+import { returnFormattedTitle, titleCase } from "../../utils/utils.js";
 
 import { BiPlay } from "react-icons/bi";
 import { GlobalContext } from "../../context/global-context";
@@ -72,24 +72,17 @@ const CollectionPage = ({ title }) => {
   //     setQueryFilter(newQuery) // a way to set the active tag
   // },[])
 
+  const { slug } = useParams();
+  let slugCap = titleCase(slug);
   useEffect(() => {
-    if (title == "TAG") {
-      let slugArray = location.pathname.split("/");
-      let slug = slugArray[slugArray.length - 1];
-      console.log(slug);
-
-      let slugCap = slug.charAt(0).toUpperCase() + slug.slice(1);
-      let slugCapSpaced = slugCap.replaceAll("%20", " ");
-      console.log(slugCapSpaced);
+    if (title === "TAG") {
+      console.log(slugCap);
       setQuery(
-        `{'articles': *[_type == 'article' && "${slugCapSpaced}" in tags[].label || _type == 'researchreality' && "${slugCapSpaced}" in tags[].label] {_id, originallyPublished, _createdAt, _type, slug, title,thumbnail,doubleWidth,'highlightItem':highlightItem[]{'asset':asset->}[0],"video": [video.asset->{...}],'eventData':[{startingTime, endingTime, place}], 'author':*[_id == ^.author._ref]{title}} | order(_createdAt desc) | order(originallyPublished desc)}`
+        `{'articles': *[_type == 'article' && "${slugCap}" in tags[].label || _type == 'researchreality' && "${slugCap}" in tags[].label] {_id, originallyPublished, _createdAt, _type, slug, title,thumbnail,doubleWidth,'highlightItem':highlightItem[]{'asset':asset->}[0],"video": [video.asset->{...}],'eventData':[{startingTime, endingTime, place}], 'author':*[_id == ^.author._ref]{title}} | order(_createdAt desc) | order(originallyPublished desc)}`
       );
-      setActiveTag(slugCapSpaced);
+      setActiveTag(slugCap);
     }
-    if (title == "ISSUE") {
-      let slugArray = location.pathname.split("/");
-      let slug = slugArray[slugArray.length - 1];
-      console.log(slug);
+    if (title === "ISSUE") {
       setActiveTag(slug);
 
       setQuery(
@@ -97,17 +90,12 @@ const CollectionPage = ({ title }) => {
       );
     }
     if (title == "AUTHOR") {
-      let slugArray = location.pathname.split("/");
-      let slug = slugArray[slugArray.length - 1];
-      let slugCap = slug.toUpperCase();
-      let slugCapSpaced = slugCap.replaceAll("%20", " ");
-
       setQuery(
-        `{'articles': *[_type == "article" && author._ref in *[_type=="author" && title=="${slugCapSpaced}"]._id || _type == "researchreality" && author._ref in *[_type=="author" && title=="${slugCapSpaced}"]._id ]{_id,originallyPublished, _createdAt, _type, slug, title,thumbnail,doubleWidth,'highlightItem':highlightItem[]{'asset':asset->}[0],"video": [video.asset->{...}],'eventData':[{startingTime, endingTime, place}], 'author':*[_id == ^.author._ref]{title}} | order(_createdAt desc) | order(originallyPublished desc)}`
+        `{'articles': *[_type == "article" && author._ref in *[_type=="author" && title=="${slug}"]._id || _type == "researchreality" && author._ref in *[_type=="author" && title=="${slug}"]._id ]{_id,originallyPublished, _createdAt, _type, slug, title,thumbnail,doubleWidth,'highlightItem':highlightItem[]{'asset':asset->}[0],"video": [video.asset->{...}],'eventData':[{startingTime, endingTime, place}], 'author':*[_id == ^.author._ref]{title}} | order(_createdAt desc) | order(originallyPublished desc)}`
       );
-      setActiveTag(slugCapSpaced);
+      setActiveTag(slug);
     }
-  }, []);
+  }, [slug]);
 
   useEffect(() => {
     if (!query) {

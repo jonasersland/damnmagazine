@@ -8,6 +8,20 @@ export const returnFormattedTitle =(title)=>{
     return <span dangerouslySetInnerHTML={createMarkup(editedTitle)} />;
 }
 
+export function titleCase(str) {
+    return str.toLowerCase().replaceAll(/(^| )(\w)/g, x => x.toUpperCase());
+/*
+var splitStr = str.toLowerCase().split(" ");
+for (var i = 0; i < splitStr.length; i++) {
+    splitStr[i] =
+    splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
+}
+return splitStr.join(" ");
+*/
+}
+
+
+
 export const returnImageHeight = (asset)=>{
     const string = asset.split("-");
     const size = string[2].split("x");

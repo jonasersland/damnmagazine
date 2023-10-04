@@ -205,10 +205,10 @@ const Article = () => {
   let location = useLocation();
   const navigate = useNavigate();
 
-  const currentSlug = location.pathname.replace("/", "");
+  const { slug } = useParams();
 
   useEffect(() => {
-    let fetchContentQuery = `{'issueLink':*[_type == "settings"]{latestIssueUrl}[0], 'article':*[slug.current == "${currentSlug}"]{..., text[]{...,_type == "contentRow" => {..., contentRowItem[]{...,'videoAsset':video.asset->{...}}}}, "issue":*[_id == ^.issue._ref]{number}, hideRelated, "tags":[tags], highlightItem[]{'asset':asset->, ...}, slideshow[]{'asset':asset->, ...},'author':*[_id == ^.author._ref]{...}}[0], 'ad':*[_id == 'settings']{articleAd}[0]}`;
+    let fetchContentQuery = `{'issueLink':*[_type == "settings"]{latestIssueUrl}[0], 'article':*[slug.current == "${slug}"]{..., text[]{...,_type == "contentRow" => {..., contentRowItem[]{...,'videoAsset':video.asset->{...}}}}, "issue":*[_id == ^.issue._ref]{number}, hideRelated, "tags":[tags], highlightItem[]{'asset':asset->, ...}, slideshow[]{'asset':asset->, ...},'author':*[_id == ^.author._ref]{...}}[0], 'ad':*[_id == 'settings']{articleAd}[0]}`;
     sanityClient
       .fetch(fetchContentQuery)
       .then((data) => {
@@ -221,7 +221,7 @@ const Article = () => {
         }
       })
       .catch(console.error);
-  }, []);
+  }, [slug]);
 
   useEffect(() => {
     if (!pageContent) return;
@@ -297,9 +297,9 @@ const Article = () => {
     } else if (type == "article") {
       const filteredTags = tags.filter((tag) => {
         return (
-          tag.label == "Art" ||
-          tag.label == "Design" ||
-          tag.label == "Architecture"
+          tag.label === "Art" ||
+          tag.label === "Design" ||
+          tag.label === "Architecture"
         );
       });
       return (
@@ -319,10 +319,10 @@ const Article = () => {
     } else if (type == "researchreality") {
       const filteredTags = tags.filter((tag) => {
         return (
-          tag.label == "Institution" ||
-          tag.label == "Company" ||
-          tag.label == "Product" ||
-          tag.label == "Products"
+          tag.label === "Institution" ||
+          tag.label === "Company" ||
+          tag.label === "Product" ||
+          tag.label === "Products"
         );
       });
       const returnFormattedTagTitle = (tag) => {
