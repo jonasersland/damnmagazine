@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import sanityClient from "../../client.js";
 import "./collection-page.styles.scss";
 import imageUrlBuilder from "@sanity/image-url";
@@ -10,7 +10,7 @@ import Menu from "../../components/menu/menu.component";
 import MenuMobile from "../../components/menu/menuMobile.component";
 import FadeInSection from "../../components/fadeInSection/fadeInSection.component.jsx";
 
-import { returnFormattedTitle } from "../../utils/utils.js";
+import { returnFormattedTitle, titleCase } from "../../utils/utils.js";
 import { tryGetAssetDocumentId } from "@sanity/asset-utils";
 
 import { BiPlay } from "react-icons/bi";
@@ -54,27 +54,18 @@ const SearchPage = ({ tags }) => {
 
   const navigate = useNavigate();
   const location = useLocation();
-  function titleCase(str) {
-    var splitStr = str.toLowerCase().replaceAll("%20", " ").split(" ");
-    for (var i = 0; i < splitStr.length; i++) {
-      splitStr[i] =
-        splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
-    }
-    return splitStr.join(" ");
-  }
+  const { slug } = useParams();
 
   useEffect(() => {
-    let tagArray = location.pathname.split("/");
-    let tag = tagArray[tagArray.length - 1];
-    setActiveTag(tag);
-    setSearchInput(tag);
-    let optionCap = titleCase(tag);
-    let optionLower = tag.toLowerCase();
-    let authorOption = tag.toUpperCase().replaceAll("%20", " ");
+    setActiveTag(slug);
+    setSearchInput(slug);
+    let optionCap = titleCase(slug);
+    let optionLower = slug.toLowerCase();
+    let authorOption = slug;
 
     setQuery(`{
         'authorPosts':
-        *[_type=="author" && title == "${authorOption}"]{
+        *[_type=="author" && title match "${authorOption}"]{
             'posts':*[^._id == author._ref]{
                 ..., _id, _type, slug, title,thumbnail,doubleWidth,'highlightItem':highlightItem[]{'asset':asset->}[0],"video": [video.asset->{...}],'eventData':[{startingTime, endingTime, place}], 'author':*[_id == ^.author._ref]{title}
             }}[0],
@@ -87,7 +78,7 @@ const SearchPage = ({ tags }) => {
                 _id, _type, slug, title,thumbnail,doubleWidth,'highlightItem':highlightItem[]{'asset':asset->}[0],"video": [video.asset->{...}],'eventData':[{startingTime, endingTime, place}], 'author':*[_id == ^.author._ref]{title}
             }
         }`);
-  }, [location]);
+  }, [slug]);
 
   useEffect(() => {
     if (!query) {
@@ -134,18 +125,23 @@ const SearchPage = ({ tags }) => {
   }, [query]);
 
   const pageNavigationHandler = (option) => {
+    console.log('pageNavigationHandler', option);
+
     if (!option) {
       setQuery(
         `{'articles': *[_type == 'article' || _type == 'researchreality'] {_id, _type, slug, title,thumbnail,doubleWidth,'highlightItem':highlightItem[]{'asset':asset->}[0],"video": [video.asset->{...}],'eventData':[{startingTime, endingTime, place}], 'author':*[_id == ^.author._ref]{title}}}`
       );
       setActiveTag("");
     }
-    let optionCap = option.charAt(0).toUpperCase() + option.slice(1);
+
+    setActiveTag(option);
+    setSearchInput(option);
+    let optionCap = titleCase(option);
     let optionLower = option.toLowerCase();
-    let authorOption = option.toUpperCase().replaceAll("%20", " ");
+    let authorOption = option;
     setQuery(`{
             'authorPosts':
-            *[_type=="author" && "${authorOption}" in title]{
+            *[_type=="author" && title match "${authorOption}"]{
                 'posts':*[^._id == author._ref]{
                     ..., _id, _type, slug, title,thumbnail,doubleWidth,'highlightItem':highlightItem[]{'asset':asset->}[0],"video": [video.asset->{...}],'eventData':[{startingTime, endingTime, place}], 'author':*[_id == ^.author._ref]{title}
                 }}[0],
@@ -277,9 +273,6 @@ const SearchPage = ({ tags }) => {
     }
   };
 
-  const insertSpace = (searchInput) => {
-    return searchInput.replaceAll("%20", " ");
-  };
   return (
     <div className={`collection-page ${returnColAmount()}`}>
       {!isNarrow ? (
@@ -304,7 +297,7 @@ const SearchPage = ({ tags }) => {
             <span className="page-navigation-separator">/</span>
             <input
               type="text"
-              placeholder={insertSpace(searchInput)}
+              placeholder={searchInput}
               id="search-field"
               name="search-field"
               style={{
